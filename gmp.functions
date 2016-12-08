@@ -2,11 +2,13 @@
 # Copyright © 2016 The developers of libertine linux's package gmp. See the COPYRIGHT file in the top-level directory of this distribution and at https://raw.githubusercontent.com/libertine-linux-packages/gmp/master/COPYRIGHT.
 
 
-variant=tarball
-
 case "$package" in
 	
 	build_musl_cross_make_gmp)
+	
+		variant=empty
+		
+		copy_subset="$variant"
 	
 		libertine_compile_build_musl_cross_make_gmp()
 		{
@@ -16,6 +18,8 @@ case "$package" in
 	;;
 	
 	gmp)
+		
+		variant=tarball
 	
 		depends build_ccache
 		build_needs ccache
